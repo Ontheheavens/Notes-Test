@@ -7,6 +7,9 @@
     flex: auto;
     flex-direction: column;
     background: rgba(0,142,255,0.2);
+    overflow: auto;
+    max-height: 600px;
+    transition-property: all;
 }
 
 .entryTitle {

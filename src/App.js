@@ -4,6 +4,10 @@ import './/styles/App.css'
 import CreateEntryButton from "./components/CreateEntryButton";
 import { SlPencil } from "react-icons/sl";
 
+/**
+ * ReactJS needful taken from https://www.youtube.com/watch?v=7PtTLHfaYWs&t=1689s.
+ */
+
 function App() {
     const [entries, setEntries] = useState([
         {id: 1, title: "Title", content: "Content"},
@@ -26,7 +30,7 @@ function App() {
     };
 
     return (
-    <div className="App">
+    <div className="app">
         {entries.length !== 0
             ? <EntryList displayed={entries} deletion={deleteEntry}/>
             : <div className={"placeholder"}>Заметок нет</div>

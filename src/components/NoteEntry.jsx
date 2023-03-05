@@ -26,8 +26,6 @@ const NoteEntry = function (props) {
         const height = event.target.scrollHeight;
         const rowHeight = 15;
         const tRows = Math.ceil(height / rowHeight) - 2;
-        console.log(textAreaHeight)
-        console.log(tRows)
         if (tRows > textAreaHeight) {
             setTextAreaHeight(tRows);
         }
@@ -37,13 +35,18 @@ const NoteEntry = function (props) {
             <div className={classes.noteEntry}
                  ref={ref}
                  onClick={() => setIsEdited(true)}>
+
                 <div className={classes.entryTitle}>
                     {props.number + ". "}
                     {title}
                 </div>
+
                 <button onClick={
                     () => props.deletion(id)
-                }>DELETE</button>
+                }>
+                    DELETE
+                </button>
+
                 { isEdited || content === ''
                     ? <textarea
                         className={classes.textArea}

@@ -1,7 +1,7 @@
 .createEntryButton {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 6px;
+    right: 6px;
     border: 2px solid cornflowerblue;
     box-sizing: border-box;
     margin: 5px;
