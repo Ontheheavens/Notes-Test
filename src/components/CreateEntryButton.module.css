@@ -1,0 +1,26 @@
+.createEntryButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 2px solid cornflowerblue;
+    box-sizing: border-box;
+    margin: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    transition: background-color 0.4s ease-in-out;
+    padding-top: 20px;
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 35px;
+}
+
+.createEntryButton:hover {
+    background-color: rgb(199, 218, 250);
+    cursor: pointer;
+}
+
+.createEntryButton:active {
+    border-color: #9dbeff;
+}

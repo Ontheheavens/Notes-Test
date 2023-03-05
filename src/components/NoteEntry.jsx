@@ -9,6 +9,7 @@ import classes from './NoteEntry.module.css';
  */
 
 const NoteEntry = function (props) {
+    const id = props.id
     const [content, setContent] = useState(props.content)
     const [title, setTitle] = useState(props.title)
 
@@ -24,7 +25,9 @@ const NoteEntry = function (props) {
         setContent(event.target.value);
         const height = event.target.scrollHeight;
         const rowHeight = 15;
-        const tRows = Math.ceil(height / rowHeight) - 1;
+        const tRows = Math.ceil(height / rowHeight) - 2;
+        console.log(textAreaHeight)
+        console.log(tRows)
         if (tRows > textAreaHeight) {
             setTextAreaHeight(tRows);
         }
@@ -34,7 +37,13 @@ const NoteEntry = function (props) {
             <div className={classes.noteEntry}
                  ref={ref}
                  onClick={() => setIsEdited(true)}>
-                <div className="entryTitle">{title}</div>
+                <div className={classes.entryTitle}>
+                    {props.number + ". "}
+                    {title}
+                </div>
+                <button onClick={
+                    () => props.deletion(id)
+                }>DELETE</button>
                 { isEdited || content === ''
                     ? <textarea
                         className={classes.textArea}
