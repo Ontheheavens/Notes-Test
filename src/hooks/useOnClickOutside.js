@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 /**
- * Hook for detecting clicks outside of an element.
+ * Hook for detecting clicks outside an element.
  * Taken from https://usehooks.com/useOnClickOutside/
  */
 

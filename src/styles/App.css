@@ -7,30 +7,34 @@
 .app {
     width: 700px;
     padding: 0;
-}
-
-.entryList {
-    width: 100%;
-}
-
-.noteEntry {
-    margin: 5px;
-    padding: 15px;
-    border: 2px solid cornflowerblue;
-    border-radius: 6px;
     display: flex;
-    flex: auto;
     flex-direction: column;
 }
 
-.noteEntry>* {
-    align-self: center;
+.entryList {
     display: flex;
-    width: 100%;
-    justify-content: center;
+    flex-direction: column;
 }
 
-.textArea {
-    resize: vertical;
-    min-height: 50px;
+.newEntry {
+    width: calc(100% - 10px);
+    border: 2px solid cornflowerblue;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin: 5px;
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.4s ease-in-out;
+    font-size: 18px;
+    font-weight: bold;
+    color: #26344f;
+}
+
+.newEntry:hover {
+    background-color: rgba(199, 218, 250, 0.8);
+}
+
+.newEntry:active {
+    border-color: #9dbeff;
 }

@@ -11,6 +11,7 @@ function App() {
     return (
     <div className="App">
         <EntryList displayed={entries}/>
+        <button className="newEntry">Создать заметку</button>
     </div>
   );
 }

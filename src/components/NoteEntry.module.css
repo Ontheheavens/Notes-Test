@@ -1,0 +1,43 @@
+.noteEntry {
+    margin: 5px;
+    padding: 14px;
+    border: 2px solid cornflowerblue;
+    border-radius: 6px;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    background: rgba(0,142,255,0.2);
+}
+
+.noteEntry>* {
+    align-self: center;
+    display: flex;
+    width: 100%;
+    height: min-content;
+    justify-content: center;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+.textArea {
+    resize: vertical;
+    min-height: 50px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 6px;
+    white-space: pre-line;
+}
+
+.displayedEntryContent {
+    box-sizing: border-box;
+    padding: 6px;
+    transition: all 0.4s ease-in-out;
+    white-space: pre-line;
+}
+
+.displayedEntryContent:hover {
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: rgba(143, 178, 238, 0.2);
+}
