@@ -16,9 +16,34 @@ While Material UI library is highly attractive both in terms of usability and de
 my conscious choice was to refrain from using it. What I ended up using are the React Transition Group
 for smooth movement animations, React Icons, and various ready-made coding techniques in open access.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Requirements
+
+#### Обязательные требования:
+- Создание одной простейшей заметки только с текстом: check.
+- Редактирование заметки в окне собственного приложения: check (implemented as built-in).
+- Сохранение заметки между сеансами приложения, в любом формате: check (browser localStorage implementation).
+- При первом запуске, приложение должно иметь одну заметку с текстом: check.
+
+#### Желательно:
+- Создание нескольких заметок в приложении: check.
+- Выводить список существующих заметок: check.
+- Возможность редактирования любой заметки из списка: check.
+- Удаление заметок: check.
+- Также сохранять все заметки между сеансами: check.
+
+#### Идеи для улучшения:
+- Возможность выделять текст курсивом, жирным и т.п: not done.
+- Менять шрифт и размер текста: not done.
+- Вставка картинок: not done.
+
+All the improvement ideas sound like an undertaking that would require a bit more time, 
+but certainly doable with a bit of persistence; yet, I figured that I would better spend what little remained of my time
+by polishing visuals instead of trying to implement complex features which could very well backfire on me.
+Possible example of note for improvement section: https://github.com/jpuri/react-draft-wysiwyg
 
 ## React Bootstrap Scripts
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### `npm start`
 

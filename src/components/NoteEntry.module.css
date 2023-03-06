@@ -47,13 +47,31 @@
     border-radius: 4px;
     border-color: rgba(100, 149, 237, 0.26);
     background-color: rgba(157, 190, 255, 0.22);
+    transition: background-color 0.4s ease-in-out;
 }
 
 .buttonSection>button:hover {
     border-color: rgb(198, 214, 245);
+    background-color: rgba(132, 173, 255, 0.51);
 }
 
-.saveHint {
+.saveButton {
+}
+
+.saveButton:disabled {
+    border-color: rgba(162, 163, 164, 0.17);
+    background-color: rgba(172, 172, 176, 0.2);
+}
+
+.saveButton:disabled:hover {
+    border-color: rgba(162, 163, 164, 0.17);
+    background-color: rgba(172, 172, 176, 0.2);
+}
+
+.deleteButton {
+}
+
+.savedHint {
     align-items: center;
     display: inline-flex;
     margin-right: 6px;
@@ -62,13 +80,30 @@
     height: max-content;
     font-size: 14px;
     color: gray;
+    transition: color 0.4s ease-in-out;
 }
 
-.saveButton {
+/* Transition animation setup.*/
+
+.savedHintEnter {
+    opacity: 0;
 }
 
-.deleteButton {
+.savedHintEnterActive {
+    opacity: 1;
+    transition: opacity 500ms;
 }
+
+.savedHintExit {
+    opacity: 1;
+}
+
+.savedHintExitActive {
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+/* Setup end.*/
 
 .noteEntry>* {
     align-self: center;
@@ -109,7 +144,7 @@
     font-family: Bahnschrift, sans-serif;
 }
 
-.displayedEntryContent:hover {
+.displayedEntryContent:hover[aria-disabled="false"] {
     cursor: pointer;
     border-radius: 4px;
     background-color: rgba(143, 178, 238, 0.4);

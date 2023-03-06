@@ -1,0 +1,37 @@
+/* Transition group setup, uses smooth item move method.
+Taken from: https://egghead.io/lessons/react-transition-items-within-a-list-with-react-transition-group
+Not entirely satisfied with the result as it doesn't smoothly closes the transition and jerks the component at the end;
+Still, this is good enough for our purposes here.
+*/
+
+.entryList {
+    min-width: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+
+.entryItemEnter {
+    max-height: 0;
+    opacity: 0;
+}
+
+.entryItemEnterActive {
+    max-height: 400px;
+    opacity: 1;
+    transition: all 500ms;
+}
+
+.entryItemExit {
+    max-height: 400px;
+    opacity: 1;
+}
+
+.entryItemExitActive {
+    max-height: 0;
+    opacity: 0;
+    transition: all 500ms;
+}

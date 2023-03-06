@@ -1,14 +1,14 @@
 // noinspection JSValidateTypes
 
-import React, {useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {useOnClickOutside} from "../hooks/useOnClickOutside";
 import classes from './NoteEntry.module.css';
 import {FiSave, FiMinusSquare} from "react-icons/fi";
+import {CSSTransition} from "react-transition-group";
+import {NotesContext} from "../App";
 
 /**
  * Example of text area autosize functionality taken from https://upmostly.com/tutorials/autosizing-textarea-react.
- * Note: this class could use some decomposition, for one, header could be a standalone component.
- * Yet, given circumstance, this isn't the most important matter to deal with.
  */
 
 const NoteEntry = function (props) {
@@ -19,20 +19,27 @@ const NoteEntry = function (props) {
     const ref = useRef();
     const [isEdited, setIsEdited] = useState(false);
     const [textAreaHeight, setTextAreaHeight] = useState(1);
-    const [deleting, setDeleting] = useState(false);
+    const [showTextAreaDelay, setShowTextAreaDelay] = useState(false);
+
+    const [showSavedHint, setShowSavedHint] = useState(false)
+    const [areChangesUnsaved, setChangesUnsaved] = useState(false)
 
     const buttonStyle = {"scale" : "1.5", "color": "#546991"}
+
+    const context = useContext(NotesContext)
+    const entries = context.entryData
+    const setEntries = context.setEntryData
 
     useOnClickOutside(ref, () =>
         setIsEdited(false)
     );
 
     /**
-     * Spent about an hour debugging this; Google and StackOverflow info being scarce, had to experiment.
-     * Here's the page that got me to the solution:
      * https://stackoverflow.com/questions/15799001/scrollheight-not-resetting-after-programmatically-changing-content
      */
     const handleTextAreaChange = (event) => {
+        setIsEdited(true)
+        setChangesUnsaved(true)
         event.target.style.height = "0";
         setContent(event.target.value);
         //ScrollHeight value does not decrease automatically; needs a manual reset.
@@ -40,21 +47,57 @@ const NoteEntry = function (props) {
         const rowHeight = 20;
         const tRows = Math.ceil(height / rowHeight) - 1;
         setTextAreaHeight(tRows);
-        console.log(height)
         //This is needed to make textArea accommodate content properly; otherwise it stays at minimal height after reset.
         event.target.style.height = "auto";
     }
 
     const handleDelete = () => {
         //Needed to prevent unauthorized swapping of content div for textArea when deleting entry.
-        setDeleting(true)
-        props.deletion(id)
+        setShowTextAreaDelay(true)
+        const filtered = entries.filter((entry) => entry.id !== id);
+        setEntries(filtered);
+    }
+
+    const handleSave = () => {
+        setIsEdited(false)
+        setShowTextAreaDelay(true)
+        setChangesUnsaved(false)
+        setTimeout(() => {
+            setShowSavedHint(true)
+            updateEntries()
+        }, 250);
+        setTimeout(() => {
+            setShowSavedHint(false)
+            setShowTextAreaDelay(false)
+        }, 1000);
+    }
+
+    const updateEntries = () => {
+        const updatedEntries = entries.map((entry) => {
+            if (entry.id === id) {
+                return {
+                    id: entry.id,
+                    title: entry.title,
+                    content: content,
+                };
+            } else {
+                return entry;
+            }
+        });
+        setEntries(updatedEntries);
+    }
+
+    const handleTextEditStart = () => {
+        if (!showTextAreaDelay) {
+            setIsEdited(true)
+        }
     }
 
     return (
-            <div className={classes.noteEntry}
-                 ref={ref}
-                 onClick={() => setIsEdited(true)}>
+            <div
+                className={classes.noteEntry}
+                ref={ref}
+            >
 
                 <div className={classes.entryHeader}>
 
@@ -64,34 +107,72 @@ const NoteEntry = function (props) {
                     </div>
 
                     <div className={classes.buttonSection}>
+
                         <button
                             className={classes.deleteButton}
                             onClick={handleDelete}
                         >
                             <FiMinusSquare style={buttonStyle}/>
                         </button>
+
                         <button
                             className={classes.saveButton}
+                            disabled={showSavedHint}
+                            onClick={() => handleSave()}
                         >
                             <FiSave style={buttonStyle}/>
                         </button>
-                        <div
-                            className={classes.saveHint}
+
+                        <CSSTransition
+                            in={showSavedHint}
+                            timeout={250}
+                            unmountOnExit
+                            classNames={{
+                                enter: classes.savedHintEnter,
+                                enterActive: classes.savedHintEnterActive,
+                                exit: classes.savedHintExit,
+                                exitActive: classes.savedHintExitActive,
+                            }}
                         >
-                            Saved
-                        </div>
+                            <div className={classes.savedHint}>
+                                Saved
+                            </div>
+                        </CSSTransition>
+
+                        <CSSTransition
+                            in={areChangesUnsaved}
+                            timeout={250}
+                            unmountOnExit
+                            classNames={{
+                                enter: classes.savedHintEnter,
+                                enterActive: classes.savedHintEnterActive,
+                                exit: classes.savedHintExit,
+                                exitActive: classes.savedHintExitActive,
+                            }}
+                        >
+                            <div className={classes.savedHint}>
+                                Changes unsaved
+                            </div>
+                        </CSSTransition>
+
                     </div>
 
                 </div>
 
-                { (isEdited || content === '') && !deleting
+                { (isEdited || content === '') && !showTextAreaDelay
                     ? <textarea
                         className={classes.textArea}
                         rows={textAreaHeight}
                         defaultValue={content}
                         onChange={handleTextAreaChange}
                         placeholder="Write..."/>
-                    : <div className={classes.displayedEntryContent}>{content}</div>
+                    : <div
+                        className={classes.displayedEntryContent}
+                        aria-disabled={showTextAreaDelay}
+                        onClick={handleTextEditStart}
+                    >
+                        {content}
+                    </div>
                 }
             </div>
         );
