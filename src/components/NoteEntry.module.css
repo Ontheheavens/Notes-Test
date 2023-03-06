@@ -1,5 +1,5 @@
 .noteEntry {
-    margin: 5px;
+    margin: 15px 5px;
     padding: 14px;
     border: 2px solid cornflowerblue;
     border-radius: 6px;
@@ -10,16 +10,64 @@
     overflow: auto;
     max-height: 600px;
     transition-property: all;
+    box-shadow: 0 2px 8px rgba(59, 61, 66, 0.43);
+}
+
+.entryHeader {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .entryTitle {
     box-sizing: border-box;
     justify-content: flex-start;
     padding: 6px;
-    font-family: sans-serif;
     font-size: 18px;
     font-weight: bold;
+    font-family: Bahnschrift, sans-serif;
     color: #111f36;
+}
+
+.buttonSection {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    word-wrap: normal;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.buttonSection>button {
+    justify-content: center;
+    align-items: center;
+    padding-top: 4px;
+    aspect-ratio: 1/1;
+    margin-left: 6px;
+    border-radius: 4px;
+    border-color: rgba(100, 149, 237, 0.26);
+    background-color: rgba(157, 190, 255, 0.22);
+}
+
+.buttonSection>button:hover {
+    border-color: rgb(198, 214, 245);
+}
+
+.saveHint {
+    align-items: center;
+    display: inline-flex;
+    margin-right: 6px;
+    width: auto;
+    max-width: 70%;
+    height: max-content;
+    font-size: 14px;
+    color: gray;
+}
+
+.saveButton {
+}
+
+.deleteButton {
 }
 
 .noteEntry>* {
@@ -33,25 +81,32 @@
 }
 
 .textArea {
-    resize: vertical;
-    min-height: 50px;
+    resize: none;
+    min-height: 25px;
+    max-height: 540px;
     box-sizing: border-box;
     border-radius: 4px;
     padding: 6px;
     white-space: pre-line;
     font-size: 16px;
     font-weight: normal;
-    font-family: sans-serif;
+    font-family: Bahnschrift, sans-serif;
+}
+
+.textArea::placeholder {
+    font-family: Bahnschrift, sans-serif;
+    font-weight: normal;
 }
 
 .displayedEntryContent {
     box-sizing: border-box;
-    justify-content: flex-start;
+    /* max-height is crucial both here and in textArea: graphical glitches happen without it. */
+    max-height: 540px;
     padding: 7px;
     transition: all 0.4s ease-in-out;
-    font-family: sans-serif;
     font-size: 16px;
-    white-space: pre-line;
+    white-space: break-spaces;
+    font-family: Bahnschrift, sans-serif;
 }
 
 .displayedEntryContent:hover {

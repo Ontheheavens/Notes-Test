@@ -1,12 +1,7 @@
 import React, {useState} from "react";
 import EntryList from "./components/EntryList";
-import './/styles/App.css'
 import CreateEntryButton from "./components/CreateEntryButton";
-import { SlPencil } from "react-icons/sl";
-
-/**
- * ReactJS needful taken from https://www.youtube.com/watch?v=7PtTLHfaYWs&t=1689s.
- */
+import './/styles/App.css'
 
 function App() {
     const [entries, setEntries] = useState([
@@ -18,7 +13,7 @@ function App() {
     const addEntry = () => {
         const newEntry = {
             id: Math.random().toString(36).substr(2, 9),
-            title: 'Заголовок',
+            title: 'Title',
             content: '',
         };
         setEntries([...entries, newEntry]);
@@ -35,7 +30,7 @@ function App() {
             ? <EntryList displayed={entries} deletion={deleteEntry}/>
             : <div className={"placeholder"}>Заметок нет</div>
         }
-        <CreateEntryButton onClick={addEntry}><SlPencil/></CreateEntryButton>
+        <CreateEntryButton onClick={addEntry}/>
     </div>
   );
 }

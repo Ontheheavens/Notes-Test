@@ -2,9 +2,21 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    font-family: Bahnschrift, sans-serif;
     /* Convenience variables for transition group */
     --timeout: 500ms;
     --list-item-max-height: 400px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: cornflowerblue;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .app {
@@ -24,8 +36,7 @@
     color: #111f36;
 }
 
-/* Transition group setup.
-Uses smooth item move method.
+/* Transition group setup, uses smooth item move method.
 Taken from: https://egghead.io/lessons/react-transition-items-within-a-list-with-react-transition-group
 */
 
