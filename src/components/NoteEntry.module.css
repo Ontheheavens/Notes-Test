@@ -1,5 +1,5 @@
 .noteEntry {
-    margin: 15px 5px;
+    margin: 10px 5px;
     padding: 14px;
     border: 2px solid cornflowerblue;
     border-radius: 6px;
@@ -16,10 +16,15 @@
 .entryHeader {
     margin-bottom: 10px;
     display: flex;
+    flex-shrink: 0;
+    flex-basis: max-content;
     justify-content: space-between;
+    height: auto;
+    min-height: max-content;
 }
 
 .entryTitle {
+    display: flex;
     box-sizing: border-box;
     justify-content: flex-start;
     padding: 6px;
@@ -36,6 +41,7 @@
     word-wrap: normal;
     flex-wrap: nowrap;
     align-items: center;
+    margin-left: auto;
 }
 
 .buttonSection>button {
@@ -73,6 +79,7 @@
 
 .savedHint {
     align-items: center;
+    padding-left: 6px;
     display: inline-flex;
     margin-right: 6px;
     width: auto;

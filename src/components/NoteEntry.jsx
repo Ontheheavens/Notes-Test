@@ -6,6 +6,7 @@ import classes from './NoteEntry.module.css';
 import {FiSave, FiMinusSquare} from "react-icons/fi";
 import {CSSTransition} from "react-transition-group";
 import {NotesContext} from "../App";
+import EntryInputField from "./EntryInputField";
 
 /**
  * Example of text area autosize functionality taken from https://upmostly.com/tutorials/autosizing-textarea-react.
@@ -14,7 +15,6 @@ import {NotesContext} from "../App";
 const NoteEntry = function (props) {
     const id = props.id
     const [content, setContent] = useState(props.content)
-    const [title, setTitle] = useState(props.title)
 
     const ref = useRef();
     const [isEdited, setIsEdited] = useState(false);
@@ -77,7 +77,7 @@ const NoteEntry = function (props) {
             if (entry.id === id) {
                 return {
                     id: entry.id,
-                    title: entry.title,
+                    date: entry.date,
                     content: content,
                 };
             } else {
@@ -93,6 +93,11 @@ const NoteEntry = function (props) {
         }
     }
 
+    const shouldDisableSave = () => {
+        return showSavedHint || content === '';
+
+    }
+
     return (
             <div
                 className={classes.noteEntry}
@@ -102,8 +107,7 @@ const NoteEntry = function (props) {
                 <div className={classes.entryHeader}>
 
                     <div className={classes.entryTitle}>
-                        {props.number + ". "}
-                        {title}
+                        {props.date}
                     </div>
 
                     <div className={classes.buttonSection}>
@@ -117,7 +121,7 @@ const NoteEntry = function (props) {
 
                         <button
                             className={classes.saveButton}
-                            disabled={showSavedHint}
+                            disabled={shouldDisableSave()}
                             onClick={() => handleSave()}
                         >
                             <FiSave style={buttonStyle}/>
@@ -160,12 +164,11 @@ const NoteEntry = function (props) {
                 </div>
 
                 { (isEdited || content === '') && !showTextAreaDelay
-                    ? <textarea
+                    ? <EntryInputField
                         className={classes.textArea}
                         rows={textAreaHeight}
                         defaultValue={content}
-                        onChange={handleTextAreaChange}
-                        placeholder="Write..."/>
+                        onChange={handleTextAreaChange}/>
                     : <div
                         className={classes.displayedEntryContent}
                         aria-disabled={showTextAreaDelay}

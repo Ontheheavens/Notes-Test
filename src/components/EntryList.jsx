@@ -6,7 +6,7 @@ import styles from './EntryList.module.css';
 const EntryList = (props) => {
     return (
         <div className={styles.entryList}>
-            <TransitionGroup className="entryListContainer">
+            <TransitionGroup className={styles.entryListContainer}>
                 {props.displayed.map((entry, index) =>
                     <CSSTransition
                         key={entry.id}
@@ -21,7 +21,7 @@ const EntryList = (props) => {
                         <NoteEntry
                             id={entry.id}
                             number={index + 1}
-                            title={entry.title}
+                            date={entry.date}
                             content={entry.content}
                             deletion={props.deletion}
                         />

@@ -5,13 +5,17 @@ Still, this is good enough for our purposes here.
 */
 
 .entryList {
-    min-width: 80%;
     width: 80%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
     align-content: center;
     align-self: center;
+}
+
+.entryListContainer {
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .entryItemEnter {

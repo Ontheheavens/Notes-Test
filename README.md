@@ -16,6 +16,8 @@ While Material UI library is highly attractive both in terms of usability and de
 my conscious choice was to refrain from using it. What I ended up using are the React Transition Group
 for smooth movement animations, React Icons, and various ready-made coding techniques in open access.
 
+- Minimum expected screen width: *320px*.
+
 ## Requirements
 
 #### Обязательные требования:
