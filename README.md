@@ -14,7 +14,7 @@ Despite being a bit more familiar with Java and Kotlin, I decided to use React f
 
 While Material UI library is highly attractive both in terms of usability and design,
 my conscious choice was to refrain from using it. What I ended up using are the React Transition Group
-for smooth movement animations, React Icons, and various ready-made coding techniques in open access.
+for smooth movement animations and React Icons.
 
 - Minimum expected screen width: *320px*.
 
