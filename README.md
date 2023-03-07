@@ -1,6 +1,6 @@
 # Notes Test
 
-This project was started on 04.03.23 as a test assignment for Severstal IT Hub internship.
+This project was started on 04.03.23 as a test assignment for internship program.
 
 ### Why Javascript and React?
 
