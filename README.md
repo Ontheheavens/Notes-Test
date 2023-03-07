@@ -21,22 +21,22 @@ for smooth movement animations, React Icons, and various ready-made coding techn
 ## Requirements
 
 #### Обязательные требования:
-- Создание одной простейшей заметки только с текстом: check.
-- Редактирование заметки в окне собственного приложения: check (implemented as built-in).
-- Сохранение заметки между сеансами приложения, в любом формате: check (browser localStorage implementation).
-- При первом запуске, приложение должно иметь одну заметку с текстом: check.
+- Создание одной простейшей заметки только с текстом: *check*.
+- Редактирование заметки в окне собственного приложения: *check* (implemented as built-in).
+- Сохранение заметки между сеансами приложения, в любом формате: *check* (browser localStorage implementation).
+- При первом запуске, приложение должно иметь одну заметку с текстом: *check*.
 
 #### Желательно:
-- Создание нескольких заметок в приложении: check.
-- Выводить список существующих заметок: check.
-- Возможность редактирования любой заметки из списка: check.
+- Создание нескольких заметок в приложении: *check*.
+- Выводить список существующих заметок: *check*.
+- Возможность редактирования любой заметки из списка: *check*.
 - Удаление заметок: check.
-- Также сохранять все заметки между сеансами: check.
+- Также сохранять все заметки между сеансами: *check*.
 
 #### Идеи для улучшения:
-- Возможность выделять текст курсивом, жирным и т.п: not done.
-- Менять шрифт и размер текста: not done.
-- Вставка картинок: not done.
+- Возможность выделять текст курсивом, жирным и т.п: *not done*.
+- Менять шрифт и размер текста: *not done*.
+- Вставка картинок: *not done*.
 
 All the improvement ideas sound like an undertaking that would require a bit more time, 
 but certainly doable with a bit of persistence; yet, I figured that I would better spend what little remained of my time

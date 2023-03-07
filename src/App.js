@@ -42,15 +42,15 @@ function App() {
 
     const createTimestamp = () => {
         const now = Date.now();
-        const fullTimestamp = new Intl.DateTimeFormat('ru-RU',
-            {year: 'numeric',
+        return new Intl.DateTimeFormat('ru-RU',
+            {
+                year: 'numeric',
                 month: '2-digit',
                 day: '2-digit',
                 hour: '2-digit',
                 minute: '2-digit',
-                second: '2-digit'}).format(now);
-        console.log(fullTimestamp)
-        return fullTimestamp
+                second: '2-digit'
+            }).format(now)
     }
 
     const saveEntries = () => {
