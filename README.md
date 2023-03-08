@@ -41,7 +41,12 @@ for smooth movement animations and React Icons.
 All the improvement ideas sound like an undertaking that would require a bit more time, 
 but certainly doable with a bit of persistence; yet, I figured that I would better spend what little remained of my time
 by polishing visuals instead of trying to implement complex features which could very well backfire on me.
+
 Possible example of note for improvement section: https://github.com/jpuri/react-draft-wysiwyg
+
+Good read about pitfalls of making WYSIWYG editors from project lead of CKEditor:
+
+https://medium.com/content-uneditable/contenteditable-the-good-the-bad-and-the-ugly-261a38555e9c#.v0d5rghdl
 
 ## React Bootstrap Scripts
 
