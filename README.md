@@ -42,7 +42,9 @@ All the improvement ideas sound like an undertaking that would require a bit mor
 but certainly doable with a bit of persistence; yet, I figured that I would better spend what little remained of my time
 by polishing visuals instead of trying to implement complex features which could very well backfire on me.
 
-Possible example of note for improvement section: https://github.com/jpuri/react-draft-wysiwyg
+Possible example of note for improvement section: 
+
+https://github.com/jpuri/react-draft-wysiwyg
 
 Good read about pitfalls of making WYSIWYG editors from project lead of CKEditor:
 
