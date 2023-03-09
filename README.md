@@ -50,6 +50,14 @@ Good read about pitfalls of making WYSIWYG editors from project lead of CKEditor
 
 https://medium.com/content-uneditable/contenteditable-the-good-the-bad-and-the-ugly-261a38555e9c#.v0d5rghdl
 
+Brief overview of setting up editor with ContentEditable:
+
+https://blixtdev.com/how-to-use-contenteditable-with-react/ (TLDR: not a matter of minutes to implement.)
+
+Another article of note:
+
+https://medium.com/@filip_89143/dealing-with-contenteditable-in-react-2b29ce5cb2d
+
 ## React Bootstrap Scripts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
