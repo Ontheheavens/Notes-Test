@@ -42,7 +42,7 @@ All the improvement ideas sound like an undertaking that would require a bit mor
 but certainly doable with a bit of persistence; yet, I figured that I would better spend what little remained of my time
 by polishing visuals instead of trying to implement complex features which could very well backfire on me.
 
-### Additional reading
+## Additional reading
 
 Possible example of note for improvement section: 
 
