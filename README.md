@@ -10,6 +10,7 @@ Despite being a bit more familiar with Java and Kotlin, I decided to use React f
 3. Guides, tutorials and other documentation for React were somewhat more comprehensive and easier to find.
 4. I have a proclivity for design and UI - frontend work seems to be the best application of these skills.
 
+
 Another way of doing this was creating JFrame GUI from scratch in Java with Swing library, though that variant seemed quite a bit more time-consuming.
 
 ### Resources
