@@ -2,6 +2,10 @@
 
 This project was started on 04.03.23 as a test assignment for internship program.
 
+### Preview:
+
+![Preview](https://raw.githubusercontent.com/Ontheheavens/Notes-Test/master/Preview.png)
+
 ### Why Javascript and React?
 
 Despite being a bit more familiar with Java and Kotlin, I decided to use React for this task because of the following reasons:
